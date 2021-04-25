@@ -1,34 +1,32 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-// import App from 'App';
 
-function Greeting() {
+// CSS
+import './scss/index.css';
+
+function BookList() {
   return (
-    <div className=''>
-      <h1>fdsfsdf</h1>
-      <Person />
-      <Message />
-      <p>sss s shh sshhj</p>
-      <ul>
-        <li>sadadfgfhghsadasssss</li>
-        <li>sadadfgfhghsadasssss</li>
-      </ul>
-      <img src='' alt='' />
-      <input type='text' />
-    </div>
+    <section className='booklist'>
+      <Book />
+    </section>
   );
 }
 
-const Person = () => <h2>davis umana</h2>;
-const Message = () => {
-  return <p>this is my message</p>;
-};
+function Book() {
+  const title = 'I Love You to the Moon and Back';
+  return (
+    <article className='book'>
+      <img
+        src='https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg'
+        alt=''
+      />
+      <h1>{title}</h1>
+      <h4>Amelia Hepworth</h4>
+    </article>
+  );
+}
 
-// const Greeting = () => {
-//   return React.createElement('h1', {}, 'hello worsdfsdflsddff');
-// };
-
-ReactDom.render(<Greeting />, document.getElementById('root'));
+ReactDom.render(<BookList />, document.getElementById('root'));
 
 // // Boiler
 // import React from 'react';
