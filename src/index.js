@@ -36,7 +36,9 @@ function BookList() {
       {books.map((book) => {
         console.log(book);
         // const { img, title, author } = book;
-        return <Book key={book.id} book={book}></Book>;
+        // return <Book key={book.id} book={book}></Book>;
+        // spreading the book object with ...
+        return <Book key={book.id} book={book} {...book}></Book>;
       })}
     </section>
   );
@@ -45,14 +47,14 @@ function BookList() {
 //function Book({img, title, author}) //{ //js destructuring from the parameters
 function Book(props) {
   // const { img, title, author } = props; //js destructuring
-  const { img, title, author } = props.book;
+  const { img, title, author } = props;
   console.log(props);
   return (
     <article className='book'>
       {/* This is the non destructured rendering of the book object */}
-      {/* <img src={props.book.img} alt='' />
+      <img src={props.book.img} alt='' />
       <h1>{props.book.title}</h1>
-      <h4>{props.book.author}</h4> */}
+      <h4>{props.book.author}</h4>
 
       {/* destructred book object */}
       <img src={img} alt='' />
