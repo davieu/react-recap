@@ -26,12 +26,18 @@ function BookList() {
         title={firstBook.title}
         author={firstBook.author}
       />
-      <Book title='random title' number={22} />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   );
 }
 
+//function Book({img, title, author}) //{ //js destructuring from the parameters
 function Book(props) {
+  // const { img, title, author } = props; //js destructuring
   console.log(props);
   return (
     <article className='book'>
