@@ -7,6 +7,7 @@ import './scss/index.css';
 //setup vars
 const books = [
   {
+    id: 1,
     img:
       'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
     title: 'I Love You to the Moon and Back',
@@ -14,31 +15,50 @@ const books = [
   },
 
   {
+    id: 2,
     img: 'https://m.media-amazon.com/images/I/71aLultW5EL._AC_UY218_.jpg',
     title: 'Our Class is a Family',
     author: 'Shannon Olsen',
   },
+  {
+    id: 3,
+    img:
+      'https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL200_SR200,200_.jpg',
+    title: 'If Animals Kissed Good Night',
+    author: 'Ann Whitford Paul',
+  },
 ];
 
-const names = ['john', 'peter', 'susan'];
-const newNames = names.map((name) => {
-  return <h1>{name}</h1>;
-});
-console.log(newNames);
 function BookList() {
-  return <section className='booklist'>{newNames}</section>;
+  return (
+    <section className='booklist'>
+      {/* {books.map((book, index) => { // will index the objects. You can use index as the key instead*/}
+      {books.map((book) => {
+        console.log(book);
+        // const { img, title, author } = book;
+        return <Book key={book.id} book={book}></Book>;
+      })}
+    </section>
+  );
 }
 
 //function Book({img, title, author}) //{ //js destructuring from the parameters
 function Book(props) {
   // const { img, title, author } = props; //js destructuring
+  const { img, title, author } = props.book;
   console.log(props);
   return (
     <article className='book'>
-      <img src={props.img} alt='' />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
-      <h4>{props.children}</h4>
+      {/* This is the non destructured rendering of the book object */}
+      {/* <img src={props.book.img} alt='' />
+      <h1>{props.book.title}</h1>
+      <h4>{props.book.author}</h4> */}
+
+      {/* destructred book object */}
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      {/* <h4>{props.book.children}</h4> */}
     </article>
   );
 }
